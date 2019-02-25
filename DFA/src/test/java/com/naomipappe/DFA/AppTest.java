@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple NDFA.
+ * Unit test for simple NFA.
  */
 public class AppTest 
     extends TestCase
