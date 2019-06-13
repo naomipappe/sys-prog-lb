@@ -4,9 +4,6 @@ import JavaTeacherLib.LlkContext;
 import JavaTeacherLib.MyLang;
 import JavaTeacherLib.Node;
 
-/**
- * Hello world!
- */
 public class MyAnalyzer extends MyLang {
     private boolean isInitiated;
 
@@ -27,39 +24,43 @@ public class MyAnalyzer extends MyLang {
             setFollowK(followContext);
             firstFollowK();
             this.isInitiated = true;
-            LlkContext[] firstK = getFirstK();
-            LlkContext[] followK = getFollowK();
         }
     }
 
     public boolean strongLlkCondition() {
         init();
-        int leftProductionRuleID = 0;
+        int leftRuleID = 0;
         for (Node leftProductionRule : this.getLanguarge()) {
-            //get context for left rule to compare
 
-            ++leftProductionRuleID;
-            int[] leftProductionRuleLexemCodes = leftProductionRule.getRoole();
-            LlkContext leftProductionRuleContext = leftProductionRule.getFirstFollowK();
 
-            int rightProductionRuleID = 0;
-            for (Node SecondProductionRule : this.getLanguarge()) {
-                //get context for right rule to compare
+            ++leftRuleID;
+            //get lexem codes - essentially a rule structure
+            int[] leftRuleLexemCodes = leftProductionRule.getRoole();
+            //get First_k + Follow_k for left rule to compare
+            LlkContext leftRuleFirstFollowK = leftProductionRule.getFirstFollowK();
 
-                ++rightProductionRuleID;
+
+            int rightRuleID = 0;
+            for (Node rightProductionRule : this.getLanguarge()) {
+                //begin search for a rule that begins with same non terminal
+                //не терминал в этом случае - А - то есть левая часть правила
+                ++rightRuleID;
 
                 //in case when left and right rules are the same - break and skip to next rule
-                if (leftProductionRuleID == rightProductionRuleID) break;
+                if (leftRuleID == rightRuleID) break;
 
-                int[] secondProductionRuleLexemCodes = SecondProductionRule.getRoole();
+                //get lexem codes - essentially a rule structure
+                int[] rightRuleLexemCodes = rightProductionRule.getRoole();
 
-                if (leftProductionRuleLexemCodes[0] == secondProductionRuleLexemCodes[0]) {
-                    // if lexem codes are equal than proceed to analyze rule pair
+                if (leftRuleLexemCodes[0] == rightRuleLexemCodes[0]) {
+                    // we found a rule that consists of 2 parts
+                    //left rule : A->alpha and right rule A->beta
 
-                    LlkContext secondProductionRuleContext = SecondProductionRule.getFirstFollowK();
+                    //get First_k + Follow_k  for right rule to compare
+                    LlkContext rightRuleFirstFollowK = rightProductionRule.getFirstFollowK();
 
-                    if (checkRulePair(leftProductionRuleID, leftProductionRuleLexemCodes, leftProductionRuleContext,
-                            rightProductionRuleID, secondProductionRuleContext))
+                    if (!checkRulePair(leftRuleID, leftRuleLexemCodes, leftRuleFirstFollowK,
+                            rightRuleID, rightRuleFirstFollowK))
                         return false;
                 }
             }
@@ -75,19 +76,22 @@ public class MyAnalyzer extends MyLang {
                                   int rightProductionRuleID, LlkContext rightProductionRuleContext) {
 
         for (int wordNumber = 0; wordNumber < leftProductionRuleContext.calcWords(); ++wordNumber) {
-            //check for every word in word set
-            //if there is a word from left production rule in word set of second production rule than
-            //return true - Grammar  does not satisfy
+            // check intersection is empty
+            // (First_k(alpha) + Follow_k(A)) intersection (First_k(beta) + Follow_k(A)) = empty set
+            // we do this by checking for every word in (First_k(alpha) + Follow_k(A)) that is does not appear in
+            // (First_k(beta) + Follow_k(A))
+            // if such word exist - return false
+            // return false - Grammar  does not satisfy LL(k) strong condition
             if (rightProductionRuleContext.wordInContext(leftProductionRuleContext.getWord(wordNumber))) {
                 System.out.println(
                         "Pair " + this.getLexemaText(leftProductionRuleLexemCodes[0]) + "-rules " +
                                 "(" + rightProductionRuleID + ", " + leftProductionRuleID + ") " +
                                 "does not satisfy strong LL(" + this.getLlkConst() + ") condition");
                 System.out.println("Grammar does not satisfy strong LL("+this.getLlkConst()+") condition");
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 }

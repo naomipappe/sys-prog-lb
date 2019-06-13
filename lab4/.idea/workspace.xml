@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e4fb45b7-3880-4fdc-8056-2c4fd6258854" name="Default Changelist" comment="">
+    <list default="true" id="e4fb45b7-3880-4fdc-8056-2c4fd6258854" name="Default Changelist" comment="lab4">
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../DFA/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DFA/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DFA/src/main/java/com/naomipappe/DFA/NFA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DFA/src/main/java/com/naomipappe/DFA/NFA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/lab3.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/src/main/java/com/sysprog/university/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/src/main/java/com/sysprog/university/App.java" afterDir="false" />
@@ -18,6 +17,8 @@
       <change beforePath="$PROJECT_DIR$/../lab3/target/classes/com/sysprog/university/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/target/classes/com/sysprog/university/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/target/classes/com/sysprog/university/PyParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/target/classes/com/sysprog/university/PyParser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/target/test-classes/com/sysprog/university/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/target/test-classes/com/sysprog/university/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/univ/MyAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/univ/MyAnalyzer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,8 +36,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/univ/MyAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="58" column="99" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="99" />
+            <state relative-caret-position="33">
+              <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/univ/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1598">
+              <caret line="106" column="71" lean-forward="true" selection-start-line="106" selection-start-column="71" selection-end-line="106" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,7 +59,20 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LL2_GR.TXT">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LL2_strong.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -98,22 +124,17 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/univ/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/univ/Main.java" />
+        <option value="$PROJECT_DIR$/LL2_GR.TXT" />
+        <option value="$PROJECT_DIR$/LL2_strong.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/univ/MyAnalyzer.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/libraries/TeacherLibrary.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="160" />
+    <option name="height" value="39" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -122,7 +143,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,18 +150,46 @@
               <item name="lab4" type="b2602c69:ProjectViewProjectNode" />
               <item name="lab4" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="lab4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="univ" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/TeacherLibrary" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -205,8 +253,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -215,14 +264,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.45008183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -262,6 +311,9 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
     </layout-to-restore>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -278,110 +330,49 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/JavaTeacherLib/LlkContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="method#LlkContext#0;class#LlkContext#0" />
-            <element signature="method#wordInContext#0;class#LlkContext#0" />
-            <element signature="method#getWord#0;class#LlkContext#0" />
-            <element signature="method#minLengthWord#0;class#LlkContext#0" />
-            <element signature="method#addWord#0;class#LlkContext#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/JavaTeacherLib/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding>
-            <element signature="method#Node#0;class#Node#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/JavaTeacherLib/MyLang.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
-          <caret line="1430" selection-start-line="1430" selection-end-line="1430" />
-          <folding>
-            <element signature="e#746#1341#0" />
-            <element signature="e#1626#3053#0" />
-            <element signature="e#3059#4530#0" />
-            <element signature="e#3649#4524#1" />
-            <element signature="e#4536#8890#0" />
-            <element signature="e#8896#9788#0" />
-            <element signature="e#9794#15056#0" />
-            <element signature="e#10355#14929#1" />
-            <element signature="e#15062#15631#0" />
-            <element signature="e#15637#15805#0" />
-            <element signature="e#15811#15970#0" />
-            <element signature="e#15976#16520#0" />
-            <element signature="e#16526#16810#0" />
-            <element signature="e#16816#17124#0" />
-            <element signature="e#17596#17905#0" />
-            <element signature="e#17911#20430#0" />
-            <element signature="e#20436#22605#0" />
-            <element signature="e#22611#24622#0" />
-            <element signature="e#24628#26647#0" />
-            <element signature="e#29890#33592#0" />
-            <element signature="e#33598#35677#0" />
-            <element signature="e#35683#37935#0" />
-            <element signature="e#37941#38816#0" />
-            <element signature="e#38822#39510#0" />
-            <element signature="e#39516#40185#0" />
-            <element signature="e#40191#40791#0" />
-            <element signature="e#40797#42098#0" />
-            <element signature="e#42104#43885#0" />
-            <element signature="e#43891#45438#0" />
-            <element signature="e#45444#46792#0" />
-            <element signature="e#46798#47106#0" />
-            <element signature="e#47112#47660#0" />
-            <element signature="e#47730#48101#0" />
-            <element signature="e#48194#48543#0" />
-            <element signature="e#48549#48841#0" />
-            <element signature="e#49147#49436#0" />
-            <element signature="e#49538#50931#0" />
-            <element signature="e#50937#51454#0" />
-            <element signature="e#51460#52069#0" />
-            <element signature="e#52075#52696#0" />
-            <element signature="e#52833#59065#0" />
-            <element signature="e#59071#64537#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/JavaTeacherLib/LlkContext.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/JavaTeacherLib/Node.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/JavaTeacherLib/MyLang.java" />
     <entry file="file://$PROJECT_DIR$/src/TeacherLibrary/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-714" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LL2_strong.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LL2_GR.TXT">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TeacherLibrary/JavaTeacherLib/MyLang.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
+        <state relative-caret-position="-476">
           <caret line="117" column="65" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/univ/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="143" column="26" lean-forward="true" selection-start-line="143" selection-start-column="26" selection-end-line="143" selection-end-column="26" />
+        <state relative-caret-position="1598">
+          <caret line="106" column="71" lean-forward="true" selection-start-line="106" selection-start-column="71" selection-end-line="106" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LL2_GR.TXT">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/univ/MyAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="58" column="99" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="99" />
+        <state relative-caret-position="33">
+          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
