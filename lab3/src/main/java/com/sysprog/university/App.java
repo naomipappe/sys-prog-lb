@@ -32,7 +32,7 @@ public class App {
             System.out.println("Input failure, shutdown");
             return;
         }
-        PyParser parser = new PyParser();
+        Parser parser = new PyParser();
         parser.parse(inputStream);
         try{
             parser.createHTML("result.html");

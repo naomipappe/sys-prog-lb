@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 public class PyParser implements Parser {
     private static LexemContainer container;
     private StringBuilder finalContents;
-    private String finalLine;
 
     public PyParser() {
         finalContents = new StringBuilder();
@@ -35,7 +34,7 @@ public class PyParser implements Parser {
     public void parse(Stream<String> fileStream) {
         LinkedList<String> filecontents = fileStream.collect(Collectors.toCollection(LinkedList::new));
         for (String line : filecontents) {
-            finalLine = "";
+            String finalLine = "";
             List<LineSegment> lineLexems = container.parse(line);
             for (LineSegment segment : lineLexems) {
                 String lexem = line.substring(segment.getFrom(), segment.getTo());
@@ -48,7 +47,7 @@ public class PyParser implements Parser {
     public void createHTML(String outputFileName) throws IOException {
         FileWriter fileWriter = new FileWriter(outputFileName);
         String styles = "<link rel=\"stylesheet\" href=\"stylesheet.css\">";
-        fileWriter.write(styles + "<main>" + finalContents.toString() + "</main>");
+        fileWriter.write(styles + "<main>" + "<meta charset=\"UTF-8\">" + finalContents.toString() + "</main>");
         fileWriter.close();
     }
 
@@ -190,7 +189,7 @@ class LexemContainer {
     }
 
     public static List<LineSegment> parse(String line) {
-        List<LineSegment> result = new ArrayList<LineSegment>();
+        List<LineSegment> result = new ArrayList<>();
         for (Lexem<String, Integer> i : lexemList) {
             Pattern pattern = Pattern.compile(i.getPattern());
             Matcher matcher = pattern.matcher(line);

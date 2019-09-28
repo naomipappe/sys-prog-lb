@@ -2,6 +2,7 @@ package com.naomipappe.DFA;
 
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,7 +25,7 @@ public class NFA
     private final Set<Integer> NFAFinalStates;
     private final Map<Integer, Map<Character, Set<Integer>>> NFATransitionMap;
     private final StringBuilder ACCEPTED_WORDS_BUILDER;
-    private String NFAAcceptedWord;
+    private Set<String> NFAAcceptedWords;
 
     public NFA(){
         NFAAlphabet = new HashSet<>();
@@ -32,6 +33,7 @@ public class NFA
         NFAFinalStates = new HashSet<>();
         NFATransitionMap = new HashMap<>();
         ACCEPTED_WORDS_BUILDER = new StringBuilder();
+        NFAAcceptedWords = new HashSet<>();
     }
 
     public NFA(String file){
@@ -81,18 +83,26 @@ public class NFA
         NFATransitionMap.forEach((s, k)-> System.out.println(s + ": " + NFATransitionMap.get(s)));
     }
 
-    public boolean accepts(String w2, String w1) {
-        String testedString = w2 + makeAcceptedWord() + w1;
+    public boolean isAccepted(String w1, String w2){
+        makeAcceptedWords();
+        ArrayList<Boolean> results = new ArrayList<>();
+        for(String accepted: NFAAcceptedWords){
+            results.add(accepts(w1 + accepted + w2));
+        }
+        return results.stream().anyMatch(s-> !s.equals(Boolean.FALSE));
+    }
+
+    private boolean accepts(String tested) {
         Set<Integer> reachable = new HashSet<>();
         reachable.add(initialState);
-        for(Character signal : testedString.toCharArray()){
-            reachable = nextStates(signal,reachable);
+        for(Character signal : tested.toCharArray()){
+            reachable.addAll(nextStates(signal,reachable));
         }
         return reachable.stream().anyMatch(s->NFAFinalStates.contains(s));
     }
 
-    public String getAcceptedWord(){
-        return NFAAcceptedWord;
+    public Set<String> getAcceptedWord(){
+        return NFAAcceptedWords;
     }
 
     private Set<Integer> nextStates(Character signal,Set<Integer> current){
@@ -103,7 +113,7 @@ public class NFA
                 continue;
             }
             Set<Integer> possibleStates = possibleWays.getOrDefault(signal,Collections.emptySet());
-            if(possibleStates.equals(Collections.emptySet())){
+            if(possibleStates.equals(Collections.emptySet()) || !NFAAlphabet.contains(signal)){
                 continue;
             }
             nextStates.addAll(possibleStates);
@@ -111,11 +121,10 @@ public class NFA
         return nextStates;
     }
 
-    private String makeAcceptedWord(){
+    private void makeAcceptedWords(){
         DFS(initialState, new TreeSet<>());
-        Optional<String> accepted = Stream.of(ACCEPTED_WORDS_BUILDER.toString().split("\\|")).findAny();
-        NFAAcceptedWord = accepted.orElse(" ");
-        return NFAAcceptedWord;
+        Stream<String> accepted = Stream.of(ACCEPTED_WORDS_BUILDER.toString().split("\\|"));
+        NFAAcceptedWords = accepted.collect(Collectors.toCollection(HashSet::new));
     }
 
     private void DFS(Integer current, Set<Integer> marked) {

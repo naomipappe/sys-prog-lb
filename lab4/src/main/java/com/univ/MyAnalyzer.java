@@ -12,16 +12,14 @@ public class MyAnalyzer extends MyLang {
         isInitiated = false;
     }
 
-    private void init() { //Do necessary assignments and inits before initiating LL(k) strong check
+    private void init() { //Do necessary assignments and init's before initiating LL(k) strong check
         if (!isInitiated) {
             printTerminals();
             printNonterminals();
             createNonProdRools();
             createNonDosNeterminals();
-            LlkContext[] firstContext = firstK();
-            setFirstK(firstContext);
-            LlkContext[] followContext = followK();
-            setFollowK(followContext);
+            setFirstK(firstK());
+            setFollowK(followK());
             firstFollowK();
             this.isInitiated = true;
         }
@@ -35,7 +33,7 @@ public class MyAnalyzer extends MyLang {
 
             ++leftRuleID;
             //get lexem codes - essentially a rule structure
-            int[] leftRuleLexemCodes = leftProductionRule.getRoole();
+            int leftRuleLexemCodes = leftProductionRule.getRoole()[0];
             //get First_k + Follow_k for left rule to compare
             LlkContext leftRuleFirstFollowK = leftProductionRule.getFirstFollowK();
 
@@ -50,17 +48,21 @@ public class MyAnalyzer extends MyLang {
                 if (leftRuleID == rightRuleID) break;
 
                 //get lexem codes - essentially a rule structure
-                int[] rightRuleLexemCodes = rightProductionRule.getRoole();
+                int rightRuleLexemCodes = rightProductionRule.getRoole()[0];
 
-                if (leftRuleLexemCodes[0] == rightRuleLexemCodes[0]) {
+                if (leftRuleLexemCodes == rightRuleLexemCodes) {
                     // we found a rule that consists of 2 parts
                     //left rule : A->alpha and right rule A->beta
 
                     //get First_k + Follow_k  for right rule to compare
                     LlkContext rightRuleFirstFollowK = rightProductionRule.getFirstFollowK();
 
-                    if (!checkRulePair(leftRuleID, leftRuleLexemCodes, leftRuleFirstFollowK,
-                            rightRuleID, rightRuleFirstFollowK))
+                    if (!checkRulePair(leftRuleFirstFollowK, rightRuleFirstFollowK))
+                        System.out.println(
+                                "Pair " + this.getLexemaText(leftRuleLexemCodes) + "-rules " +
+                                        "(" + rightRuleID + ", " + leftRuleID + ") " +
+                                        "does not satisfy strong LL(" + this.getLlkConst() + ") condition");
+                    System.out.println("Grammar does not satisfy strong LL("+this.getLlkConst()+") condition");
                         return false;
                 }
             }
@@ -70,10 +72,7 @@ public class MyAnalyzer extends MyLang {
         return true;
     }
 
-    private boolean checkRulePair(int leftProductionRuleID,
-                                  int[] leftProductionRuleLexemCodes,
-                                  LlkContext leftProductionRuleContext,
-                                  int rightProductionRuleID, LlkContext rightProductionRuleContext) {
+    private boolean checkRulePair(LlkContext leftProductionRuleContext, LlkContext rightProductionRuleContext) {
 
         for (int wordNumber = 0; wordNumber < leftProductionRuleContext.calcWords(); ++wordNumber) {
             // check intersection is empty
@@ -83,11 +82,6 @@ public class MyAnalyzer extends MyLang {
             // if such word exist - return false
             // return false - Grammar  does not satisfy LL(k) strong condition
             if (rightProductionRuleContext.wordInContext(leftProductionRuleContext.getWord(wordNumber))) {
-                System.out.println(
-                        "Pair " + this.getLexemaText(leftProductionRuleLexemCodes[0]) + "-rules " +
-                                "(" + rightProductionRuleID + ", " + leftProductionRuleID + ") " +
-                                "does not satisfy strong LL(" + this.getLlkConst() + ") condition");
-                System.out.println("Grammar does not satisfy strong LL("+this.getLlkConst()+") condition");
                 return false;
             }
         }
